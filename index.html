@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Busy Store - Apple Gift Card</title>
+  <title>Busy Store - Google Play Gift Card</title>
   <style>
     * {
       box-sizing: border-box;
@@ -27,12 +27,15 @@
       text-align: center;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
+    
+    /* Busy Store Logo (အရွယ်အစား 90px) */
     .store-logo {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 12px;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 16px;
       object-fit: contain;
     }
+    
     .title {
       font-size: 18px;
       font-weight: 800;
@@ -44,9 +47,27 @@
       font-size: 20px;
       font-weight: 700;
       color: #d99b00;
-      margin: 0 0 20px 0;
+      margin: 0 0 16px 0;
     }
     
+    /* Google Play Card Box */
+    .card-box {
+      background-color: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .logo-img {
+      width: 100%;
+      max-width: 130px;
+      height: auto;
+      object-fit: contain;
+    }
+
     /* Input Section Styles */
     .input-box {
       width: 100%;
@@ -68,24 +89,6 @@
       font-weight: 600;
       font-size: 15px;
       cursor: pointer;
-    }
-
-    /* Card Image Section */
-    .apple-card-box {
-      background-color: #f8fafc;
-      border: 1px solid #f1f5f9;
-      border-radius: 20px;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    .apple-logo-img {
-      width: 100%;
-      max-width: 140px;
-      height: auto;
-      object-fit: contain;
     }
 
     /* Details Box Section */
@@ -111,17 +114,6 @@
       font-weight: 700;
       color: #b78103;
       word-break: break-all;
-      margin-bottom: 10px;
-    }
-    .pin-field {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 12px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #334155;
-      word-break: break-all;
     }
     .footer-text {
       font-size: 12px;
@@ -137,26 +129,32 @@
 <body>
 
 <div class="card-container">
-  <!-- Busy Store Logo (Class နာမည် ပြင်ထားသည်) -->
+  <!-- Busy Store Logo -->
   <img src="busystore.png" alt="Busy Store Logo" class="store-logo">
 
-  <!-- Password Locked View -->
+  <!-- Password Locked View (Lock Screen) -->
   <div id="lock-section">
-    <h1 class="title">APPLE GIFT CARD</h1>
+    <h1 class="title">GOOGLE PLAY GIFT CARD</h1>
     <p class="amount">$10.00 USD</p>
+
+    <!-- Google Play Logo (Lock Screen) -->
+    <div class="card-box">
+      <img src="googleplaygc.png" alt="Google Play Logo" class="logo-img">
+    </div>
+
     <input type="password" id="passInput" class="input-box" placeholder="Enter Password">
     <button onclick="checkPassword()" class="btn">Unlock Card</button>
     <p id="error-msg" style="color: #ef4444; font-size: 13px; display: none; margin-top: 10px;">Password မှားယွင်းနေပါသည်။</p>
   </div>
 
-  <!-- Unlocked View -->
+  <!-- Unlocked View (Password ရိုက်ပြီးသည့်အချိန်) -->
   <div id="card-section" class="hidden">
-    <h1 class="title">APPLE GIFT CARD</h1>
+    <h1 class="title">GOOGLE PLAY GIFT CARD</h1>
     <p class="amount">$10.00 USD</p>
 
-    <!-- Apple Card Logo Box -->
-    <div class="apple-card-box">
-      <img src="applegc.png" alt="Apple Logo" class="apple-logo-img">
+    <!-- Google Play Logo (Unlocked Screen) -->
+    <div class="card-box">
+      <img src="googleplaygc.png" alt="Google Play Logo" class="logo-img">
     </div>
 
     <!-- Details Box -->
@@ -173,7 +171,8 @@
 
 <script>
   function checkPassword() {
-    const correctPassword = "KZTA10USD"; // Password ပြောင်းရန်
+    // ဝယ်သူဆီ ပို့ပေးမည့် Password ကို ဒီနေရာမှာ ပြင်ပါ
+    const correctPassword = "KZTA10USD";
 
     const userPassword = document.getElementById("passInput").value;
     if (userPassword === correctPassword) {
